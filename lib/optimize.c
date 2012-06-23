@@ -11,7 +11,6 @@ bool optimize_block(mustache_node_t* node)
     mustache_node_t* child = node->first_child;
     while (child) {
         if (!child->optimize(child)) {
-            printf("ERROR\n");
             return false;
         }
         child = child->next_sibling;

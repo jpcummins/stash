@@ -45,7 +45,6 @@ bool execute_raw_variable(mustache_node_t* node, mustache_context_t* ctx)
     if (value) {
         if (value->type == VALUE_VALUE) {
             if (!mustache_write_to_buffer(ctx, value->data.value, value->length)) {
-                printf("html_encode failed\n");
                 value->destroy(value);
                 return false;
             }
@@ -137,7 +136,6 @@ bool execute_section(mustache_node_t* node, mustache_context_t* ctx)
 
     if (!response) {
         // TODO: truncate
-        printf("Bad response\n");
     }
     return true;
 }

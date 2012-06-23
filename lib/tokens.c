@@ -2,20 +2,17 @@
 
 void set_start_delimiter(char* delimiter, scanner_data_t* data)
 {
-    printf("start %s\n", delimiter);
     data->statement_start = strdup(delimiter);
 }
 
 void use_next_end_delimiter(scanner_data_t* data)
 {
-    printf("use next\n");
     data->statement_end = data->next_statement_end;
     data->next_statement_end = "";
 }
 
 void set_next_end_delimiter(char* delimiter, scanner_data_t* data)
 {
-    printf("end %s\n", delimiter);
     data->statement_end = strdup(delimiter);
 }
 
