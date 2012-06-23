@@ -1,0 +1,18 @@
+VERSION = '0.0.1'
+APPNAME = 'mustache'
+
+def options(opt):
+  opt.tool_options('compiler_c')
+
+def configure(conf):
+  conf.check_tool('compiler_c flex')
+
+def build(bld):
+
+  bld.stlib(
+    source='mustache.c build.c optimize.c execute.c lexer.l',
+    target='mustachelib',
+    includes = '.',
+    cflags = '-Wall -pedantic -std=c99 -O3',
+    use='lexlib'
+  )

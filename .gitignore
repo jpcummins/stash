@@ -1,0 +1,10 @@
+.waf*
+.DS_Store
+.lock*
+build/
+*.gem
+Gemfile.lock
+*.bundle
+ruby/pkg
+ruby/tmp
+tmp/*
