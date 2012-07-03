@@ -1,29 +1,11 @@
 #define BUILDING_NODE_EXTENSION
 #include <node.h>
+#include "stash_template.h"
 
 using namespace v8;
 
-Handle<Value> Add(const Arguments& args) {
-  HandleScope scope;
-
-  if (args.Length() < 2) {
-    ThrowException(Exception::TypeError(String::New("Wrong number of arguments")));
-    return scope.Close(Undefined());
-  }
-
-  if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
-    ThrowException(Exception::TypeError(String::New("Wrong arguments")));
-    return scope.Close(Undefined());
-  }
-
-  Local<Number> num = Number::New(args[0]->NumberValue() +
-      args[1]->NumberValue());
-  return scope.Close(num);
+void InitAll(Handle<Object> target) {
+  StashTemplate::Init(target);
 }
 
-void Init(Handle<Object> target) {
-  target->Set(String::NewSymbol("add"),
-      FunctionTemplate::New(Add)->GetFunction());
-}
-
-NODE_MODULE(stash, Init)
+NODE_MODULE(stash, InitAll)

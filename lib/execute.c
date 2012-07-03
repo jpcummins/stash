@@ -195,7 +195,7 @@ static bool html_encode(
     char* replacement;
     size_t replacement_length;
 
-    for (int i = 0; i < length; i++) {
+    for (size_t i = 0; i < length; i++) {
         current = non_terminated_input[i];
 
         switch (current) {

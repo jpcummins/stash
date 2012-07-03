@@ -107,15 +107,8 @@ struct mustache_node {
 mustache_node_t* mustache_create_node();
 
 void mustache_destroy_node(mustache_node_t* node);
-
-bool mustache_build_template(
-    char* template,
-    mustache_node_t* root,
-    mustache_error_t** error);
-
-bool mustache_execute_template(
-    mustache_node_t* node,
-    mustache_context_t* ctx);
+bool mustache_build_template(char* tmp, mustache_node_t* root, mustache_error_t** error);
+bool mustache_execute_template(mustache_node_t* node, mustache_context_t* ctx);
 
 /* Functions to be defined by each implementation */
 

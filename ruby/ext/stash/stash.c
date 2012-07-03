@@ -4,8 +4,6 @@
 #include "mustache.h"
 #include "stash.h"
 
-
-
 extern void log_template_execution_time(mustache_context_t* m_ctx, double time);
 extern double get_time();
 

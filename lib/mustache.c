@@ -43,8 +43,6 @@ bool mustache_build_template(
 bool mustache_execute_template(mustache_node_t* node, mustache_context_t* ctx)
 {
     ctx->prefix = "";
-    rb_gc_disable();
     bool result = node->execute(node, ctx);
-    rb_gc_enable();
     return result;
 }
